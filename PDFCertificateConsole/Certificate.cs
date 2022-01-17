@@ -16,8 +16,10 @@ namespace PDFCertificateConsole
                 if (certificate.FriendlyName.Contains(certificateName))
                 {
                     Console.WriteLine($"Certificate {certificateName} loaded.");
+
                     return certificate;
-                    return new X509Certificate2(certificate.GetRawCertData(), certificatePassword);
+                    //var cert = new X509Certificate2(certificate.GetRawCertData(), certificatePassword);
+                    //return cert;
                 }
             }
 

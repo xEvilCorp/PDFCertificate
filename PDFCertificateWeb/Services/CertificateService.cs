@@ -27,7 +27,7 @@ namespace PDFCertificateWeb.Services
                     fileBytes = memoryStream.ToArray();
                 }
 
-                X509Certificate2 certificate = new X509Certificate2(fileBytes, password, X509KeyStorageFlags.Exportable);
+                X509Certificate2 certificate = new X509Certificate2(fileBytes, password, X509KeyStorageFlags.PersistKeySet | X509KeyStorageFlags.Exportable | X509KeyStorageFlags.MachineKeySet);
                 certificate.FriendlyName = name;
 
                 string storeName = GetCertificateStore();
