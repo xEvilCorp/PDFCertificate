@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Head {
+<link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center white-text">Certificate Your PDFs</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Add a digital certificate signature to your files.</h5>
+            </div>
+            <div class="row center">
+                <a  asp-controller="Files" asp-action="Index" id="download-button" class="btn-large waves-effect waves-light cyan darken-1">Get Started</a>
+            </div>
+            <br><br>
+
+        </div>
+    </div>
+    <div class="parallax blue"><img src="~/img/bluewall.jpg" alt="Unsplashed background img 1"></div>
+</div>
+
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center blue-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Speeds up development</h5>
+
+                    <p class="light">Ovos, recém-nascidos e jabutis jovens são alimentos para muitos predadores, mas as principais ameaças para adultos são onças-pintadas e humanos. A densidade populacional varia de local comum a muito escassa devido em parte à destruição do habitat e a cobrança excessiva de alimentos e o comércio de animais de estimação.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center blue-text"><i class="material-icons">group</i></h2>
+                    <h5 class="center">User Experience Focused</h5>
+
+                    <p class="light">Ovos, recém-nascidos e jabutis jovens são alimentos para muitos predadores, mas as principais ameaças para adultos são onças-pintadas e humanos. A densidade populacional varia de local comum a muito escassa devido em parte à destruição do habitat e a cobrança excessiva de alimentos e o comércio de animais de estimação.</p>
+                </div>
+            </div>
+
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center blue-text"><i class="material-icons">settings</i></h2>
+                    <h5 class="center">Add security to documents</h5>
+
+                    <p class="light">Ovos, recém-nascidos e jabutis jovens são alimentos para muitos predadores, mas as principais ameaças para adultos são onças-pintadas e humanos. A densidade populacional varia de local comum a muito escassa devido em parte à destruição do habitat e a cobrança excessiva de alimentos e o comércio de animais de estimação.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+<script>
+    (function($){
+       $(function(){
+
+         $('.sidenav').sidenav();
+         $('.parallax').parallax();
+
+       }); 
+     })(jQuery); 
+
+</script>
+}

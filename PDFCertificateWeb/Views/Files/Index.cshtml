@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "File List";
+}
+
+<div class="container">
+    <div class="card" style="margin-top: 40px">
+
+        <div class="card-content">
+            @if (!ViewBag.HasCertificate)
+            {
+                <h5 style="margin-bottom: 32px;" class="blue-text">Before signing any files you need to upload a certificate: </h5>
+                <a asp-controller="Certificate" asp-action="Add" class="waves-effect waves-light btn-large z-depth-0 orange white-text"><i class="material-icons left">add</i>Upload Certificate</a>
+            }
+            else
+            {
+                <div style="display:flex; align-items:center;  margin-bottom: 30px;">
+                    <h4 style="margin: 0;flex:auto" class="blue-text">Your Files</h4>
+                    <a asp-controller="Files" asp-action="Upload" class="waves-effect waves-light btn z-depth-0 teal lighten-1 white-text"><i class="material-icons left">add</i>Sign New File</a>
+                </div>
+
+
+                @if (ViewBag.FilesList.Count > 0)
+                {
+                    <ul>
+                        @foreach (var file in ViewBag.FilesList)
+                        {
+                            <li class="collection-item" style="display: flex; align-items: center; gap: 15px; margin-bottom:5px; border: 1px solid lightgrey; padding: 5px 20px;border-radius: 3px;}">
+                                <img src="~/img/pdficon.png" style="width: 32px">
+                                <div style="flex: auto;">@file.Name</div>
+                                <div style="overflow:hidden">@file.UploadDate</div>
+                                <a href="@file.Path">View</a>
+                                <a href="@file.Path" download>Download</a>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <div>
+                        Ainda  não tem nenhum arquivo.
+                    </div>
+                }
+            }
+
+
+        </div>
+    </div>
+
+</div>

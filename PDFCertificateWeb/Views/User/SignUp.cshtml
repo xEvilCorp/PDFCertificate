@@ -1,0 +1,53 @@
+﻿@model SignUpViewModel
+@{
+    Layout = "_Empty";
+    ViewData["Title"] = "SignUp";
+}
+
+@section Head {
+<link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+}
+
+<a class="logo" asp-area="" asp-controller="Home" asp-action="Index">
+    <i class="material-icons-outlined left" style="margin-right: 5px">security</i><b>WEB CERTIFICATE</b>
+</a>
+<div class="card login">
+
+    <form method="post" class="card-content">
+        <h4 class="login-title">Register</h4>
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div asp-validation-summary="All" class="error"></div>
+        }
+
+        <div class="form-field">
+            <label asp-for="Username"></label>
+            <input asp-for="Username" placeholder="Username" />
+            <span asp-validation-for="Username"></span>
+        </div><br>
+
+
+        <div class="form-field">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" placeholder="Password" />
+            <span asp-validation-for="Password"></span>
+        </div><br>
+
+        <div class="form-field">
+            <label asp-for="ConfirmPassword"></label>
+            <input asp-for="ConfirmPassword" placeholder="Confirm Password" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div><br>
+
+        <div class="form-field">
+            <button class="btn-large waves-effect blue waves-dark login-button" style="width:100%;">Create Account <i class="material-icons-outlined">keyboard_double_arrow_right</i></button>
+        </div>
+
+        <div style="text-align:center; margin-top: 10px">
+            Already have an account? <a asp-controller="User" asp-action="Login">Login</a>
+        </div>
+    </form>
+
+</div>
+

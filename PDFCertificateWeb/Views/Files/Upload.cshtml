@@ -1,0 +1,39 @@
+﻿@model FileUploadViewModel
+
+@{
+    ViewBag.Title = "Upload";
+}
+
+<div class="container">
+    <div class="card" style="margin-top: 30px">
+
+        <form class="card-content" style="padding: 45px" enctype="multipart/form-data" asp-controller="files" asp-action="upload" method="post">
+            <h4 class="blue-text" style="margin-top: 0px; margin-bottom: 36px">Sign File</h4>
+
+
+            <div class="form-field">
+                <label style="color: #5e5e5e; font-size: 1rem">File Description</label>
+                <input asp-for="Name" placeholder="Description" />
+            </div>
+
+            <div class="file-field input-field">
+                <div class="btn blue">
+                    <span>Choose File</span>
+                    <input asp-for="File" accept=".pdf">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Upload .PDF File" accept=".pdf">
+                </div>
+            </div>
+
+            <div asp-validation-summary="All" class="red-text"></div>
+            <br />
+
+            <div class="form-field row">
+                <button type="submit" class="btn-large waves-effect blue waves-dark right col s5">Upload File</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>

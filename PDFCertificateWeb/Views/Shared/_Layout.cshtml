@@ -1,0 +1,69 @@
+﻿@inject SignInManager<AppUser> signInManager;
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PDFCertificateWeb</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PDFCertificateWeb.styles.css" asp-append-version="true" />
+    @RenderSection("Head", required: false)
+
+</head>
+<body style="display: flex; flex-direction:column; height: 100%">
+    <header class="blue">
+        <nav class="container z-depth-0 blue">
+            <div class="nav-wrapper">
+                <a class="left" style="font-size: 1.2em; display: flex;" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="material-icons-outlined" style="margin-right: 5px; display: flex; align-items:center">security</i><b>WEB CERTIFICATE</b>
+                </a>
+                <ul class="right">
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <li>
+                            <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+                                <span><i class="material-icons left">account_circle</i>  @User.Identity.Name.ToUpper()</span>
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li><a class="waves-effect waves-light btn blue darken-4 z-depth-0" style="margin-right: 0" asp-controller="User" asp-action="Signup">SignUp</a></li>
+                        <li><a class="waves-effect waves-light btn blue darken-4 z-depth-0" style="margin-right: 0" asp-controller="User" asp-action="Login">Login</a></li>
+                    }
+                </ul>
+            </div>
+        </nav>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a asp-controller="Files" asp-action="Index" class="blue-text">Your PDFs</a></li>
+            <li><a asp-controller="Certificate" asp-action="Add" class="blue-text">Your Certificate</a></li>
+            <li class="divider"></li>
+            <li><a asp-controller="User" asp-action="Logout" class="blue-text">Logout</a></li>
+        </ul>
+    </header>
+    <div style="flex: auto">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="blue" style="padding: 20px; margin-top: 20px">
+        <div class="container white-text" >
+            &copy; 2022 - PDF Certificate
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".dropdown-trigger").dropdown({ coverTrigger: false});
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
